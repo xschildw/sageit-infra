@@ -250,7 +250,7 @@ Resources:
           - arn:aws:s3:::staging.csbc-pson.synapse.org/*
         - Effect: Allow
           Action:
-          - cloudfront:createInvalidation
+          - cloudfront:CreateInvalidation
           Resource:
             - arn:aws:cloudfront::797640923903:distribution/E284T8G8XOYXA7
             - arn:aws:cloudfront::797640923903:distribution/E31RJ2W38VHQMW
