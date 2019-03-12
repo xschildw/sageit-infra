@@ -252,8 +252,18 @@ Resources:
           Action:
           - cloudfront:CreateInvalidation
           Resource:
-            - arn:aws:cloudfront::797640923903:distribution/E284T8G8XOYXA7
-            - arn:aws:cloudfront::797640923903:distribution/E31RJ2W38VHQMW
+          - Join
+              - ''
+              - - 'arn:aws:cloudfront::'
+                - !Ref 'AWS:AccountId'
+                - ':distribution/'
+                - !ImportValue us-east-1-staging-csbc-pson-s3webcf-CloudfrontId
+          - Join
+              - ''
+              - - 'arn:aws:cloudfront::'
+                - !Ref 'AWS:AccountId'
+                - ':distribution/'
+                - !ImportValue us-east-1-prod-csbc-pson-s3webcf-CloudfrontId
       Roles:
         - !Ref AWSIAMPortalDeployerRole
   AWSIAMPortalDeployerRole:
